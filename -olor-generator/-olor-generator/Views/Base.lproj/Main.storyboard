@@ -22,6 +22,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="CangeBG">
                                     <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="22"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="cangeBGButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="e9a-PM-JsQ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -37,6 +40,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="459" y="98"/>
+        </scene>
+        <!--Storyboard Reference-->
+        <scene sceneID="lJq-li-uqR">
+            <objects>
+                <viewControllerPlaceholder id="o76-kN-x0V" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fgb-ow-qzG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1022" y="-159"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7td-iu-rnH">

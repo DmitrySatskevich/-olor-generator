@@ -8,13 +8,62 @@
 import UIKit
 
 class GeneratorViewController: UIViewController {
+    
+    @IBOutlet weak var redSliderOutlet: UISlider!
+    @IBOutlet weak var greenSliderOutlet: UISlider!
+    @IBOutlet weak var blueSliderOutlet: UISlider!
+    
+    @IBOutlet weak var redTFOutlet: UITextField!
+    @IBOutlet weak var greenTFOutlet: UITextField!
+    @IBOutlet weak var blueTFOutlet: UITextField!
+    
+    @IBOutlet weak var hexColorOutlet: UITextField!
+    
+    @IBOutlet weak var opacityOutlet: UISlider!
+    @IBOutlet weak var opacityTF: UITextField!
+    @IBOutlet weak var viewColorOutlet: UIView!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        setColor()
+        setValueForTextField()
     }
 
+    @IBAction func sliderColorAction(_ sender: UISlider) {
+        switch sender.tag {
+            case 0:
+                redTFOutlet.text = string(from: sender)
+            case 1:
+                greenTFOutlet.text = string(from: sender)
+            case 2:
+                blueTFOutlet.text = string(from: sender)
+            default:
+                break
+            }
+            setColor()
+        }
+
+    // MARC: - Private func
+    
+    private func setColor() {
+        viewColorOutlet.backgroundColor = UIColor(red: CGFloat(redSliderOutlet.value),
+                                        green: CGFloat(greenSliderOutlet.value),
+                                        blue: CGFloat(blueSliderOutlet.value),
+                                        alpha: 1)
+    }
+    
+    private func setValueForTextField() {
+        redTFOutlet.text = string(from: redSliderOutlet)
+        greenTFOutlet.text = string(from: greenSliderOutlet)
+        blueTFOutlet.text = string(from: blueSliderOutlet)
+    }
+    
+    private func string(from slider: UISlider) -> String {
+        return String(format: "%.2f", slider.value)
+    }
+    
 
     /*
     // MARK: - Navigation

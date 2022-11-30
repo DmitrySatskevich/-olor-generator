@@ -10,7 +10,17 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GeneratorViewController" customModule="_olor_generator" customModuleProvider="target">
             <connections>
+                <outlet property="blueSliderOutlet" destination="yJr-8G-4VS" id="40X-SD-fq4"/>
+                <outlet property="blueTFOutlet" destination="5VL-It-bvG" id="krJ-ih-86s"/>
+                <outlet property="greenSliderOutlet" destination="k0o-lG-6KK" id="ehB-Nh-UUF"/>
+                <outlet property="greenTFOutlet" destination="pky-G6-a24" id="XUu-M7-Cl6"/>
+                <outlet property="hexColorOutlet" destination="Z0i-F6-9qR" id="PQp-ID-hCy"/>
+                <outlet property="opacityOutlet" destination="gEB-37-sf9" id="f3X-Ou-t4v"/>
+                <outlet property="opacityTF" destination="zrZ-HI-aXI" id="aCD-M8-TUS"/>
+                <outlet property="redSliderOutlet" destination="fzC-Sl-oPS" id="kcx-xz-okT"/>
+                <outlet property="redTFOutlet" destination="0jp-8m-AQv" id="CWq-6y-QnI"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="viewColorOutlet" destination="7eB-RT-46u" id="5jx-a3-wuL"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -33,9 +43,12 @@
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="fzC-Sl-oPS">
+                                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="fzC-Sl-oPS">
                                             <rect key="frame" x="-2" y="26.5" width="306" height="31"/>
                                             <color key="minimumTrackTintColor" systemColor="systemRedColor"/>
+                                            <connections>
+                                                <action selector="sliderColorAction:" destination="-1" eventType="valueChanged" id="aIx-FH-tU7"/>
+                                            </connections>
                                         </slider>
                                     </subviews>
                                 </stackView>
@@ -48,9 +61,12 @@
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="k0o-lG-6KK">
+                                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="k0o-lG-6KK">
                                             <rect key="frame" x="-2" y="26.5" width="306" height="31"/>
                                             <color key="minimumTrackTintColor" systemColor="systemGreenColor"/>
+                                            <connections>
+                                                <action selector="sliderColorAction:" destination="-1" eventType="valueChanged" id="kZC-ah-RD2"/>
+                                            </connections>
                                         </slider>
                                     </subviews>
                                 </stackView>
@@ -63,8 +79,11 @@
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="yJr-8G-4VS">
+                                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="yJr-8G-4VS">
                                             <rect key="frame" x="-2" y="26.5" width="306" height="31"/>
+                                            <connections>
+                                                <action selector="sliderColorAction:" destination="-1" eventType="valueChanged" id="Ixy-yE-Loi"/>
+                                            </connections>
                                         </slider>
                                     </subviews>
                                 </stackView>
@@ -83,7 +102,7 @@
                             </constraints>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                         </textField>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pky-G6-a24">
                             <rect key="frame" x="0.0" y="97" width="50" height="34"/>
@@ -93,7 +112,7 @@
                             </constraints>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                         </textField>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5VL-It-bvG">
                             <rect key="frame" x="0.0" y="194" width="50" height="34"/>
@@ -103,7 +122,7 @@
                             </constraints>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                         </textField>
                     </subviews>
                 </stackView>
@@ -155,7 +174,7 @@
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="LQZ-JE-jeX">
                             <rect key="frame" x="0.0" y="28.5" width="364" height="34"/>
                             <subviews>
-                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="gEB-37-sf9">
+                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="100" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="gEB-37-sf9">
                                     <rect key="frame" x="-2" y="0.0" width="260" height="35"/>
                                     <color key="minimumTrackTintColor" red="0.89411771299999998" green="0.89411771299999998" blue="0.90196073060000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </slider>
@@ -167,7 +186,7 @@
                                     </constraints>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                    <textInputTraits key="textInputTraits"/>
+                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                 </textField>
                             </subviews>
                         </stackView>
