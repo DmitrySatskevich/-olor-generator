@@ -15,7 +15,10 @@ class ViewController: UIViewController {
     }
 
     @IBAction func cangeBGButton(_ sender: UIButton) {
-        
+        let vc = GeneratorViewController(nibName: "GeneratorViewController", bundle: nil)
+            vc.dataString = "Привет из Первого"
+            vc.navigationItem.title = "XIB VC"
+            navigationController?.pushViewController(vc, animated: true)
     }
     
 }
