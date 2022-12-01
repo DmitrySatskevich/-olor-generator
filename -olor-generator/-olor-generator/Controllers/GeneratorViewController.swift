@@ -23,7 +23,8 @@ class GeneratorViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var opacityTF: UITextField!
     @IBOutlet weak var viewColorOutlet: UIView!
     
-    var dataString: String?
+    var delegate: ColorDelegate?
+    var colorFromMainVC: UIColor!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +37,7 @@ class GeneratorViewController: UIViewController, UITextFieldDelegate {
         addDoneButtonTo(greenTFOutlet)
         addDoneButtonTo(blueTFOutlet)
         
+        viewColorOutlet.backgroundColor = colorFromMainVC
     }
 
     @IBAction func sliderColorAction(_ sender: UISlider) {
@@ -59,15 +61,17 @@ class GeneratorViewController: UIViewController, UITextFieldDelegate {
         opacityTF.text = string(from: sender)
     }
     
+    @IBAction func goToRoatVC(_ sender: Any) {
+        navigationController?.popToRootViewController(animated: true)
+    }
     
-    
-    // MARC: - Private func
-    
-    private func setColor() {
-        viewColorOutlet.backgroundColor = UIColor(red: CGFloat(redSliderOutlet.value),
-                                                  green: CGFloat(greenSliderOutlet.value),
-                                                  blue: CGFloat(blueSliderOutlet.value),
-                                                  alpha: 1)
+    func setColor() {
+        let newColor = UIColor(red: CGFloat(redSliderOutlet.value),
+                               green: CGFloat(greenSliderOutlet.value),
+                               blue: CGFloat(blueSliderOutlet.value),
+                               alpha: 1)
+        viewColorOutlet.backgroundColor = newColor
+        delegate?.setColor(newColor)
     }
     
     private func setValueForTextField() {
@@ -125,8 +129,6 @@ class GeneratorViewController: UIViewController, UITextFieldDelegate {
                                             target: nil,
                                             action: nil)
         
-        
-        
         keyboardToolbar.items = [flexBarButton, doneButton]
     }
     
@@ -140,16 +142,6 @@ class GeneratorViewController: UIViewController, UITextFieldDelegate {
         alert.addAction(okAction)
         present(alert, animated: true)
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 

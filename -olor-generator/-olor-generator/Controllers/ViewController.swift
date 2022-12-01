@@ -8,18 +8,24 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
+    
+    @IBOutlet weak var cangeBGOutlet: UIButton!
+    
+    // MARK: - IBAction
 
     @IBAction func cangeBGButton(_ sender: UIButton) {
         let vc = GeneratorViewController(nibName: "GeneratorViewController", bundle: nil)
-            vc.dataString = "Привет из Первого"
-            vc.navigationItem.title = "XIB VC"
-            navigationController?.pushViewController(vc, animated: true)
+        vc.delegate = self
+        vc.colorFromMainVC = view.backgroundColor
+        navigationController?.pushViewController(vc, animated: true)
+        
     }
-    
 }
 
+// MARK: - extension
+
+extension ViewController: ColorDelegate {
+    func setColor(_ color: UIColor) {
+        view.backgroundColor = color
+    }
+}

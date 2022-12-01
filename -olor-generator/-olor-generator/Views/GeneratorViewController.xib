@@ -140,6 +140,9 @@
                     </constraints>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                    <connections>
+                        <action selector="goToRoatVC:" destination="-1" eventType="touchUpInside" id="RMK-6t-i6I"/>
+                    </connections>
                 </button>
                 <stackView opaque="NO" contentMode="scaleToFill" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="kdf-dA-PXV">
                     <rect key="frame" x="180" y="372" width="209" height="34"/>

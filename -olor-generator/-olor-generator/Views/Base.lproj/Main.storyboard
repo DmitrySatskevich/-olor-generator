@@ -36,6 +36,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="dFi-0o-VKt"/>
+                    <connections>
+                        <outlet property="cangeBGOutlet" destination="cNy-us-RxA" id="sta-cb-a4C"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
