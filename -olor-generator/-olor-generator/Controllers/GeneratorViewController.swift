@@ -25,6 +25,10 @@ class GeneratorViewController: UIViewController, UITextFieldDelegate {
     
     var delegate: ColorDelegate?
     var colorFromMainVC: UIColor!
+    
+    var redSliderValue: CGFloat!
+    var greenSliderValue: CGFloat!
+    var blueSliderValue: CGFloat!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,11 +37,10 @@ class GeneratorViewController: UIViewController, UITextFieldDelegate {
         setColor()
         setValueForTextField()
         
-        addDoneButtonTo(redTFOutlet)
-        addDoneButtonTo(greenTFOutlet)
-        addDoneButtonTo(blueTFOutlet)
-        
         viewColorOutlet.backgroundColor = colorFromMainVC
+//        redSliderOutlet.value = Float(redSliderValue)
+//        greenSliderOutlet.value = Float(greenSliderValue)
+//        blueSliderOutlet.value = Float(blueSliderValue)
     }
 
     @IBAction func sliderColorAction(_ sender: UISlider) {
@@ -49,16 +52,12 @@ class GeneratorViewController: UIViewController, UITextFieldDelegate {
             greenTFOutlet.text = string(from: sender)
         case 2:
             blueTFOutlet.text = string(from: sender)
+        case 3:
+            opacityTF.text = string(from: sender)
         default: break
         }
         
         setColor()
-    }
-    
-    @IBAction func alphaSliderAction(_ sender: UISlider) {
-        let currentValue = CGFloat(sender.value)
-        viewColorOutlet.backgroundColor = viewColorOutlet.backgroundColor?.withAlphaComponent(currentValue)
-        opacityTF.text = string(from: sender)
     }
     
     @IBAction func goToRoatVC(_ sender: Any) {
@@ -66,18 +65,22 @@ class GeneratorViewController: UIViewController, UITextFieldDelegate {
     }
     
     func setColor() {
-        let newColor = UIColor(red: CGFloat(redSliderOutlet.value),
-                               green: CGFloat(greenSliderOutlet.value),
-                               blue: CGFloat(blueSliderOutlet.value),
-                               alpha: 1)
+        let newColor = UIColor(red: CGFloat(redSliderOutlet.value / 255),
+                               green: CGFloat(greenSliderOutlet.value / 255),
+                               blue: CGFloat(blueSliderOutlet.value / 255),
+                               alpha: CGFloat(opacityOutlet.value / 100))
         viewColorOutlet.backgroundColor = newColor
         delegate?.setColor(newColor)
+        delegate?.updateSlider(red: CGFloat(redSliderOutlet.value),
+                               green: CGFloat(greenSliderOutlet.value),
+                               blue: CGFloat(opacityOutlet.value))
     }
     
     private func setValueForTextField() {
         redTFOutlet.text = string(from: redSliderOutlet)
         greenTFOutlet.text = string(from: greenSliderOutlet)
         blueTFOutlet.text = string(from: blueSliderOutlet)
+        opacityTF.text = string(from: opacityOutlet)
     }
     
     private func string(from slider: UISlider) -> String {
@@ -96,53 +99,7 @@ class GeneratorViewController: UIViewController, UITextFieldDelegate {
         
         view.endEditing(true) // Скрывает клавиатуру, вызванную для любого объекта
     }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        guard let text = textField.text else { return }
-        
-        if let currentValue = Float(text) {
-            switch textField.tag {
-            case 0: redSliderOutlet.value = currentValue
-            case 1: greenSliderOutlet.value = currentValue
-            case 2: blueSliderOutlet.value = currentValue
-            default: break
-            }
-            
-            setColor()
-        } else {
-            showAlert(title: "Wrong format!", message: "Please enter correct value")
-        }
-    }
-    
-    private func addDoneButtonTo(_ textField: UITextField) {
-        // Метод для отображения кнопки "Готово" на цифровой клавиатуре
-        let keyboardToolbar = UIToolbar()
-        textField.inputAccessoryView = keyboardToolbar
-        keyboardToolbar.sizeToFit()
-        
-        let doneButton = UIBarButtonItem(title:"Done",
-                                         style: .done,
-                                         target: self,
-                                         action: #selector(didTapDone))
-        
-        let flexBarButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace,
-                                            target: nil,
-                                            action: nil)
-        
-        keyboardToolbar.items = [flexBarButton, doneButton]
-    }
-    
-    @objc private func didTapDone() {
-        view.endEditing(true)
-    }
-    
-    private func showAlert(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default)
-        alert.addAction(okAction)
-        present(alert, animated: true)
-    }
-
 }
+ 
 
 
