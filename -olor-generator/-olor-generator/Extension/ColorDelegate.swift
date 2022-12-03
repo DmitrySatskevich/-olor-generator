@@ -9,4 +9,5 @@ import UIKit
 
 protocol ColorDelegate {
     func setColor(_ color: UIColor)
+    func updateSlider(red: CGFloat, green: CGFloat, blue: CGFloat)
 }

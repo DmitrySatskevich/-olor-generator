@@ -9,6 +9,10 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    var redSliderValue: CGFloat!
+    var greenSliderValue: CGFloat!
+    var blueSliderValue: CGFloat!
+    
     @IBOutlet weak var cangeBGOutlet: UIButton!
     
     // MARK: - IBAction
@@ -17,6 +21,9 @@ class ViewController: UIViewController {
         let vc = GeneratorViewController(nibName: "GeneratorViewController", bundle: nil)
         vc.delegate = self
         vc.colorFromMainVC = view.backgroundColor
+        vc.redSliderValue = redSliderValue
+        vc.greenSliderValue = greenSliderValue
+        vc.blueSliderValue = blueSliderValue
         navigationController?.pushViewController(vc, animated: true)
         
     }
@@ -25,7 +32,14 @@ class ViewController: UIViewController {
 // MARK: - extension
 
 extension ViewController: ColorDelegate {
+    func updateSlider(red: CGFloat, green: CGFloat, blue: CGFloat) {
+        redSliderValue = red
+        greenSliderValue = green
+        blueSliderValue = blue
+    }
+    
     func setColor(_ color: UIColor) {
         view.backgroundColor = color
     }
+    
 }

@@ -43,7 +43,7 @@
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="fzC-Sl-oPS">
+                                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="fzC-Sl-oPS">
                                             <rect key="frame" x="-2" y="26.5" width="306" height="31"/>
                                             <color key="minimumTrackTintColor" systemColor="systemRedColor"/>
                                             <connections>
@@ -61,7 +61,7 @@
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <slider opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="k0o-lG-6KK">
+                                        <slider opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="k0o-lG-6KK">
                                             <rect key="frame" x="-2" y="26.5" width="306" height="31"/>
                                             <color key="minimumTrackTintColor" systemColor="systemGreenColor"/>
                                             <connections>
@@ -79,7 +79,7 @@
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <slider opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="yJr-8G-4VS">
+                                        <slider opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="yJr-8G-4VS">
                                             <rect key="frame" x="-2" y="26.5" width="306" height="31"/>
                                             <connections>
                                                 <action selector="sliderColorAction:" destination="-1" eventType="valueChanged" id="Ixy-yE-Loi"/>
@@ -177,11 +177,11 @@
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="LQZ-JE-jeX">
                             <rect key="frame" x="0.0" y="28.5" width="364" height="34"/>
                             <subviews>
-                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="gEB-37-sf9">
+                                <slider opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="100" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="gEB-37-sf9">
                                     <rect key="frame" x="-2" y="0.0" width="260" height="35"/>
                                     <color key="minimumTrackTintColor" red="0.89411771299999998" green="0.89411771299999998" blue="0.90196073060000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <connections>
-                                        <action selector="alphaSliderAction:" destination="-1" eventType="valueChanged" id="M35-Lt-2lB"/>
+                                        <action selector="sliderColorAction:" destination="-1" eventType="valueChanged" id="J2p-MW-MLx"/>
                                     </connections>
                                 </slider>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1.00" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zrZ-HI-aXI">
